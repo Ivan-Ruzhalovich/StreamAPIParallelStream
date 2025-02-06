@@ -10,16 +10,6 @@ public class Main {
                 new Student("Student3", Map.of("Math", 88, "Chemistry", 92)),
                 new Student("Student4", Map.of("Physics", 78, "Chemistry", 85))
         );
-//        Map<String,Double> result = students.parallelStream()
-//                .flatMap(student -> student.getGrades()
-//                        .entrySet().stream()
-//                        .map(m -> new AbstractMap.SimpleEntry<>(m.getKey(),m.getValue())))
-//                .collect(Collectors
-//                        .groupingBy(Map.Entry::getKey,Collectors.teeing(
-//                                        Collectors.summingInt(Map.Entry::getValue),
-//                                        Collectors.counting(),
-//                                        (sum, count) -> sum / (double) count
-//                                )));
         Map<String,Double> result = students.parallelStream()
                 .flatMap(student -> student.getGrades()
                         .entrySet().stream()
